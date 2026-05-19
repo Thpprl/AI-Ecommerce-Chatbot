@@ -1,0 +1,44 @@
+<div class="page">
+  <div class="hero">
+    <div class="eyebrow">IT HARDWARE STORE</div>
+    <h1>อุปกรณ์<em>คอมพิวเตอร์</em><br>ประสิทธิภาพสูง</h1>
+    <p class="hero-sub">สินค้าคุณภาพดี ราคาสมเหตุสมผล</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="grid-wrapper">
+    <div class="grid" id="products-grid">
+
+      @for (product of products(); track product.id) {
+      <div class="card">
+        <div class="card-img">
+          <img [src]="product.image" [alt]="product.name" class="product-image">
+        </div>
+        <div class="card-body">
+          <div class="card-name">{{ product.name }}</div>
+          <div class="card-desc">{{ product.description }}</div>
+          <div class="card-footer">
+            <div class="price-wrap">
+              <span class="price-label">ราคา</span>
+              <span class="price">${{ product.price }}</span>
+            </div>
+            <button class="btn-buy">สั่งซื้อ</button>
+          </div>
+        </div>
+      </div>
+      }
+
+    </div>
+  </div>
+
+  <div class="footer-section">
+    <div class="footer-card">
+      <p>มีคำถามเพิ่มเติม?</p>
+      <p class="footer-card-sub">ยินดีให้คำปรึกษาทุกวัน ตลอด 24 ชั่วโมง</p>
+
+      <button class="btn-inquiry" (click)="goToInquiry()">
+        ติดต่อเรา &rarr;
+      </button>
+    </div>
+  </div>
+</div>

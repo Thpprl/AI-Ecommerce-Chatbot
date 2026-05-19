@@ -1,0 +1,94 @@
+<div class="flex flex-col h-200 bg-[#F8FAFC] font-sans text-slate-700">
+
+  <header class="flex items-center p-4 bg-white border-b border-slate-100 shadow-sm">
+    <button (click)="back()" class="material-icons text-2xl text-black">
+      arrow_back_ios
+    </button>
+    <div class="flex items-center ml-2">
+      <div class="w-10 h-10 bg-[#0084FF] rounded-full flex items-center justify-center text-white shadow-md">
+        <img src="assets/images/chatbot.png" class="h-15 w-auto object-contain">
+      </div>
+      <h1 class="ml-3 font-bold text-lg tracking-tight">AI Support Assistant</h1>
+    </div>
+  </header>
+
+  <!-- <main class="flex-1 p-6 overflow-y-auto space-y-4">
+    <div class="flex items-start gap-3">
+      <img src="assets/images/chatbot1.png"  class="h-10 w-10">
+      <div class="bg-white p-4 rounded-tr-2xl rounded-br-2xl rounded-bl-2xl shadow-sm border border-slate-100 max-w-[85%] leading-relaxed">
+        สวัสดีครับ! ผมคือ AI Assistant ของ HelpCenter ยินดีที่ได้พบครับ วันนี้มีอะไรให้ผมช่วยดูแลไหมครับ?
+      </div>
+    </div>
+  </main> -->
+  <main class="flex-1 p-6 overflow-y-auto space-y-4">
+
+    <div *ngFor="let msg of messages">
+
+      <!-- Bot -->
+      <div *ngIf="msg.sender === 'bot'" class="flex items-start gap-3">
+        <img src="assets/images/chatbot1.png" class="h-10 w-10">
+        <div
+          class="bg-white p-4 rounded-tr-2xl rounded-br-2xl rounded-bl-2xl shadow-sm border border-slate-100 max-w-[85%] leading-relaxed">
+          {{ msg.text }}
+        </div>
+      </div>
+
+      <!-- User -->
+      <div *ngIf="msg.sender === 'user'" class="flex justify-end">
+        <div class="bg-[#0084FF] text-white p-4 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl shadow-sm max-w-[85%]">
+          {{ msg.text }}
+        </div>
+      </div>
+
+    </div>
+    <!-- Typing Indicator -->
+    <div *ngIf="isLoading" class="flex items-start gap-3">
+      <img src="assets/images/chatbot1.png" class="h-10 w-10">
+      <div class="bg-white p-4 rounded-tr-2xl rounded-br-2xl rounded-bl-2xl shadow-sm border border-slate-100">
+
+        <div class="flex space-x-1">
+          <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
+          <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+          <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="p-4 bg-[#F8FAFC]">
+    <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar">
+      <button (click)="setMessage('สอบถามข้อมูล')"
+        class="px-5 py-1.5 bg-[#EEF6FF] border border-[#D0E4FF] text-slate-600 rounded-full text-sm hover:bg-blue-100 transition-colors whitespace-nowrap">
+        สอบถามข้อมูล
+      </button>
+
+      <button (click)="setMessage('ของเสียหาย')"
+        class="px-5 py-1.5 bg-[#EEF6FF] border border-[#D0E4FF] text-slate-600 rounded-full text-sm hover:bg-blue-100 transition-colors whitespace-nowrap">
+        ของเสียหาย
+      </button>
+
+      <button (click)="setMessage('ขอคืนสินค้า')"
+        class="px-5 py-1.5 bg-[#EEF6FF] border border-[#D0E4FF] text-slate-600 rounded-full text-sm hover:bg-blue-100 transition-colors whitespace-nowrap">
+        ขอคืนสินค้า
+      </button>
+
+    </div>
+
+    <div
+      class="flex items-center bg-white border border-slate-200 rounded-xl px-4 py-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-100 transition-all">
+      <input type="text" [(ngModel)]="message" placeholder="พิมพ์คำถามของคุณที่นี่...."
+        class="flex-1 outline-none text-slate-600 placeholder:text-slate-300 py-2">
+      <button (click)="send()" class="ml-2 p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition-colors bg-slate-50">
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+        </svg>
+
+      </button>
+
+    </div>
+  </footer>
+
+</div>

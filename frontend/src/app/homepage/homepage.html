@@ -1,0 +1,62 @@
+<div class="min-h-screen bg-[#F8FAFC] font-sans">
+  <div class="mx-auto ">
+
+    <header class="mb-12 flex items-center justify-between bg-white p-4 shadow-sm">
+      <div class="flex items-center gap-4">
+        <img src="assets/images/logo.png" class="h-15 w-auto object-contain">
+        <h1 class="text-xl font-bold text-slate-700">HelpCenter</h1>
+      </div>
+      <button (click)="openChat()"
+        class="mt-4 flex items-center gap-2 rounded-lg bg-blue-500 px-6 py-2 text-white transition hover:bg-blue-600 md:mt-0">
+        แนะนำสินค้า <span class="text-xl">+</span>
+      </button>
+    </header>
+
+    <div class=" text-left p-6">
+      <p class="text-4xl font-bold text-slate-900">สวัสดีครับ</p>
+      <h3 class="text-4xl font-bold text-blue-500">เราจะดูแลคุณอย่างไรดี?</h3>
+      <p class="mt-6 text-slate-600 max-w-lg">
+        ยินดีต้อนรับสู่ศูนย์ช่วยเหลือแบบครบวงจร คุณสามารถแจ้งปัญหา สอบถาม หรือขอคืนสินค้าได้ง่ายๆ
+        เพียงเลือกหัวข้อด้านล่างนี้
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 p-6">
+
+      <div class="flex flex-col rounded-3xl bg-white p-8 shadow-sm transition hover:shadow-[0_0px_15px_#EF444433]  ">
+        <div class="mb-6 h-14 w-14 rounded-2xl bg-red-50 flex items-center justify-center">
+          <img src="assets/images/circle.png" class="h-15 w-auto object-contain">
+        </div>
+        <h4 class="mb-3 text-xl font-bold text-red-500">แจ้งของเสียหาย</h4>
+        <p class="mb-8 text-slate-500 text-sm leading-relaxed">พบปัญหาจากขนส่งหรือสินค้าชำรุดเสียหายจากการผลิต</p>
+        <button (click)="openChat()"
+          class="cursor-pointer mt-auto flex items-center font-bold text-red-500">ดำเนินการต่อ <span
+            class="ml-2">></span></button>
+
+      </div>
+
+      <div class="flex flex-col rounded-3xl bg-white p-8 shadow-sm transition hover:shadow-[0_0px_15px_#3B82F64D]">
+        <div class="mb-6 h-14 w-14 rounded-2xl bg-blue-50 flex items-center justify-center">
+          <img src="assets/images/question.png" class="h-15 w-auto object-contain">
+        </div>
+        <h4 class="mb-3 text-xl font-bold text-blue-500">สอบถามข้อมูล</h4>
+        <p class="mb-8 text-slate-500 text-sm leading-relaxed">คุยกับเจ้าหน้าที่ หรือสอบถามรายละเอียดสินค้า</p>
+        <button (click)="openChat()"
+          class="cursor-pointer mt-auto flex items-center font-bold text-blue-500">ดำเนินการต่อ <span
+            class="ml-2">></span></button>
+      </div>
+
+      <div class="flex flex-col rounded-3xl bg-white p-8 shadow-sm transition hover:shadow-[0_0px_15px_#FACC154D]">
+        <div class="mb-6 h-14 w-14 rounded-2xl bg-yellow-50 flex items-center justify-center">
+          <img src="assets/images/undo.png" class="h-12 w-auto object-contain">
+        </div>
+        <h4 class="mb-3 text-xl font-bold text-yellow-500">คืนสินค้า</h4>
+        <p class="mb-8 text-slate-500 text-sm leading-relaxed">ตรวจสอบนโยบายการคืนสินค้า และดำเนินการขอคืนเงิน</p>
+        <button (click)="openChat()"
+          class="cursor-pointer mt-auto flex items-center font-bold text-yellow-500">ดำเนินการต่อ <span
+            class="ml-2">></span></button>
+      </div>
+
+    </div>
+  </div>
+</div>
