@@ -36,6 +36,10 @@ export class Chatpage {
 
   send() {
     if (!this.message.trim()) return;
+    this.messages.push({text: 'เวอร์ชันสาธิตหน้าเว็บ: ยังไม่ได้เชื่อมต่อ Local LLM จึงไม่ส่งข้อความหรือสร้างคำตอบ AI', sender: 'bot'});
+    this.message = '';
+    return;
+
 
     const userMessage = this.message;
 
